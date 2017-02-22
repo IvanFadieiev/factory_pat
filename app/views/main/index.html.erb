@@ -1,6 +1,30 @@
 <h1>Main#index</h1>
 <p>Find me in app/views/main/index.html.erb</p>
-<%= form_for @obj, url: create_path do |f| %>
-  <%= f.text_area :name %><br>
-  <%= f.submit 'Save' %>
-<% end %>
+<%= link_to 'User', '#', id: 'user_link' %>
+<%= link_to 'Customer', '#', id: 'customer_link' %>
+<div class="render_div">
+</div>
+
+<script>
+$(document).ready(function(){
+    $('#user_link').click(function(event){
+        event.preventDefault();
+        $.ajax({
+            url: '/load_user_partial',
+            success: function(data){
+                $('.render_div').html(data);
+            }
+        })
+    });
+
+    $('#customer_link').click(function(event){
+        event.preventDefault();
+        $.ajax({
+            url: '/load_customer_partial',
+            success: function(data){
+                $('.render_div').html(data);
+            }
+        })
+    })
+})
+</script>

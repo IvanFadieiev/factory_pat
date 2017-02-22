@@ -24,3 +24,5 @@ module TestFabric
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
+
+Dir[Rails.root + 'lib/**/*.rb'].each{ |file| require file }

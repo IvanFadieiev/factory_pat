@@ -1,0 +1,11 @@
+<%= form_for @customer, url: create_path do |f| %>
+    <%= hidden_field_tag :sent_to, 'create_customer' %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br><br>
+    <%= f.fields_for :address do |ff| %>
+      <%= ff.label :street %>
+      <%= ff.text_field :street %>
+    <% end %>
+    <br>
+    <%= f.submit 'Save' %>
+<% end %>
